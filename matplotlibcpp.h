@@ -407,10 +407,9 @@ namespace matplotlibcpp {
 		PyObject* yerrarray = get_array(yerr);
 
 		PyObject *kwargs = PyDict_New();
+		PyDict_SetItemString(kwargs, "fmt", PyString_FromString(s.c_str()));
 
 		PyDict_SetItemString(kwargs, "yerr", yerrarray);
-
-		PyObject *pystring = PyString_FromString(s.c_str());
 
 		PyObject *plot_args = PyTuple_New(2);
 		PyTuple_SetItem(plot_args, 0, xarray);
